@@ -55,16 +55,11 @@
         }
       ],
       "icon": "assets/icons/icon.icns",
-      "category": "public.app-category.productivity",
-      "hardenedRuntime": true,
-      "gatekeeperAssess": false,
-      "entitlements": "build/entitlements.mac.plist",
-      "entitlementsInherit": "build/entitlements.mac.plist"
+      "category": "public.app-category.productivity"
     },
     "dmg": {
       "title": "${productName} ${version}",
       "icon": "assets/icons/icon.icns",
-      "background": "assets/dmg-background.png",
       "contents": [
         {
           "x": 410,
@@ -88,7 +83,8 @@
       "installerIcon": "assets/icons/icon.ico",
       "uninstallerIcon": "assets/icons/icon.ico",
       "unicode": true,
-      "warningsAsErrors": false
+      "warningsAsErrors": false,
+      "include": "build/installer.nsh"
     }
   }
 }
