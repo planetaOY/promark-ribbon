@@ -1,8 +1,8 @@
 {
   "name": "promark-ribbon-calculator",
-  "version": "1.0.2",
+  "version": "1.0.23",
   "productName": "Калькулятор ріббонів Promark",
-  "description": "Інтерактивний підбірник ріббонів для друку",
+  "description": "Калькулятор ріббонів для друку",
   "main": "main.js",
   "author": "Promark",
   "license": "ISC",
