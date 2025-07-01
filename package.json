@@ -85,7 +85,6 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "uninstallDisplayName": "${productName} Uninstaller",
-      "include": "build/installer.nsh",
       "installerIcon": "assets/icons/icon.ico",
       "uninstallerIcon": "assets/icons/icon.ico",
       "unicode": true,
