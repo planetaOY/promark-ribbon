@@ -1,5 +1,4 @@
 
-on:
   push:
     branches:
       - main
@@ -25,7 +24,13 @@ jobs:
         run: npm install
 
       - name: Build application
-        run: npm run dist:all
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            npm run dist:win
+          else
+            npm run dist:mac
+          fi
+        shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
