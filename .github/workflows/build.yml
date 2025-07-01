@@ -1,0 +1,38 @@
+name: Build Electron App
+
+on:
+  push:
+    branches:
+      - main # Запускать сборку при отправке изменений в основную ветку
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest] # Указываем, что собирать нужно и под Mac, и под Windows
+
+    steps:
+      - name: Check out git repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Укажите вашу версию Node.js
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run dist:all # Запускаем сборку для всех платформ
+        env:
+          # Этот токен предоставляется GitHub автоматически, ваш личный токен не нужен
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}-build
+          path: dist

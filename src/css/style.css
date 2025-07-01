@@ -1,0 +1,27 @@
+/* style.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.result-box {
+    transition: all 0.3s ease-in-out;
+}
+
+.rating-plus-3 { color: #22c55e; font-weight: 900; } /* green-500 */
+.rating-plus-2 { color: #84cc16; font-weight: 700; } /* lime-500 */
+.rating-plus-1 { color: #facc15; font-weight: 500; } /* yellow-400 */
+.rating-plus-minus { color: #f97316; font-weight: 500; } /* orange-500 */
+.rating-minus-1, .rating-minus-2, .rating-minus-3 { color: #ef4444; font-weight: 500; } /* red-500 */
+.rating-none { color: #9ca3af; } /* gray-400 */

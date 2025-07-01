@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Про програму</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            -webkit-user-select: none;
+            user-select: none;
+            overflow: hidden;
+        }
+        body {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        img {
+            height: 96px;
+            width: 96px;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+        #app-version-container {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        #copyright-container {
+            font-size: 0.75rem;
+            color: #4b5563;
+            margin-top: 2rem;
+        }
+        #link-container {
+            margin-top: 1rem;
+        }
+        a {
+            font-size: 0.875rem;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <img src="assets/icons/icon-192x192.png" alt="Promark Logo">
+    
+    <h1>Калькулятор ріббонів</h1>
+    <p id="app-version-container">Версія <span id="app-version">...</span></p>
+
+    <p id="copyright-container">
+        Copyright © 2025 Promark. Всі права захищено.
+    </p>
+
+    <p id="link-container">
+        <a id="official-site-link" href="#">Офіційний сайт Promark</a>
+    </p>
+
+    <script>
+        async function setAppVersion() {
+            try {
+                const version = await window.electronAPI.getAppVersion();
+                document.getElementById('app-version').innerText = version;
+            } catch (error) {
+                document.getElementById('app-version').innerText = 'невідома';
+                console.error('Не вдалося отримати версію:', error);
+            }
+        }
+    
+        setAppVersion();
+
+        document.getElementById('official-site-link').addEventListener('click', (event) => {
+            event.preventDefault();
+            window.electronAPI.openExternalLink('https://promark.ua/');
+        });
+    </script>
+</body>
+</html>
